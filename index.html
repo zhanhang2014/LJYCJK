@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>My App</title>
+    <!-- Path to Framework7 Library CSS-->
+    <link rel="stylesheet" href="../../dist/css/framework7.ios.min.css">
+    <!-- Path to your custom app styles-->
+    <link rel="stylesheet" href="css/my-app.css">
+  </head>
+  <body>
+    <!-- Status bar overlay for fullscreen mode-->
+    <div class="statusbar-overlay"></div>
+    <!-- Panels overlay-->
+    <div class="panel-overlay"></div>
+    <!-- Left panel with reveal effect-->
+    <div class="panel panel-left panel-reveal">
+      <div class="content-block">
+        <p>Left panel content goes here</p>
+      </div>
+    </div>
+    <!-- Right panel with cover effect-->
+    <div class="panel panel-right panel-cover">
+      <div class="content-block">
+        <p>Right panel content goes here</p>
+      </div>
+    </div>
+    <!-- Views-->
+    <div class="views tabs toolbar-through">
+      <!-- Your main view, should have "view-main" class-->
+      <div id="view-1" class="view view-main tab active">
+        <!-- Top Navbar-->
+        <div class="navbar">
+          <div class="navbar-inner">
+            <div class="center sliding">缆机远程监控系统</div>
+          </div>
+        </div>
+        <!-- Pages, because we need fixed-through navbar and toolbar, it has additional appropriate classes-->
+        <div class="pages navbar-through toolbar-through">
+          <!-- Index Page-->
+          <div data-page="index-1" class="page">
+            <div class="page-content">
+              <div class="list-block accordion-list">
+                <ul>
+                  <li class="accordion-item"><a href="#" class="item-content item-link">
+                    <div class="item-inner">
+                      <div class="item-title">工地一</div>
+                    </div></a>
+                    <div class="accordion-item-content">
+                      <div class="list-block">
+                        <ul>
+                          <li><a href="cranedata.html"class="item-link item-content">
+                              <div class="item-inner"> 
+                                <div class="item-title" onclick="specifyCrane('LJ0_OPC_WINCC','cable_crane_1_1')">1#缆机</div>
+                              </div></a></li>
+                          <li><a href="cranedata.html" class="item-link item-content">
+                              <div class="item-inner" onclick="specifyCrane('LJ1_OPC_WINCC','cable_crane_1_2')"> 
+                                <div class="item-title">2#缆机</div>
+                              </div></a></li>
+                          <li><a href="cranedata.html" class="item-link item-content">
+                              <div class="item-inner" onclick="specifyCrane('LJ2_OPC_WINCC','cable_crane_1_3')">
+                                <div class="item-title">3#缆机</div>
+                              </div></a></li>
+                          <li><a href="cranedata.html" class="item-link item-content">
+                              <div class="item-inner" onclick="specifyCrane('LJ3_OPC_WINCC','cable_crane_1_4')">
+                                <div class="item-title">4#缆机</div>
+                              </div></a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="accordion-item"><a href="#" class="item-content item-link">
+                    <div class="item-inner" onclick="loadXMLDoc()">
+                      <div class="item-title">工地二</div>
+                    </div></a>
+                    <div class="accordion-item-content">
+                      <div class="list-block">
+                        <ul>
+                          <li><a href="cranedata.html"class="item-link item-content">
+                              <div class="item-inner" onclick="specifyCrane('LJ4_OPC_WINCC','cable_crane_2_1')"> 
+                                <div class="item-title">1#缆机</div>
+                              </div></a></li>
+                          <li><a href="cranedata.html" class="item-link item-content">
+                              <div class="item-inner" onclick="specifyCrane('LJ5_OPC_WINCC','cable_crane_2_2')"> 
+                                <div class="item-title">2#缆机</div>
+                              </div></a></li>
+                          <li><a href="cranedata.html" class="item-link item-content">
+                              <div class="item-inner" onclick="specifyCrane('LJ6_OPC_WINCC','cable_crane_2_3')">
+                                <div class="item-title">3#缆机</div>
+                              </div></a></li>
+                          <li><a href="cranedata.html" class="item-link item-content">
+                              <div class="item-inner" onclick="specifyCrane('LJ7_OPC_WINCC','cable_crane_2_4')">
+                                <div class="item-title">4#缆机</div>
+                              </div></a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="accordion-item"><a href="#" class="item-content item-link">
+                    <div class="item-inner">
+                      <div class="item-title">工地三</div>
+                    </div></a>
+                    <div class="accordion-item-content">
+                      <div class="list-block">
+                        <ul>
+                          <li><a href="cranedata.html"class="item-link item-content">
+                              <div class="item-inner" onclick="specifyCrane('LJ8_OPC_WINCC','cable_crane_3_1')"> 
+                                <div class="item-title">1#缆机</div>
+                              </div></a></li>
+                          <li><a href="cranedata.html" class="item-link item-content">
+                              <div class="item-inner" onclick="specifyCrane('LJ9_OPC_WINCC','cable_crane_3_2')"> 
+                                <div class="item-title">2#缆机</div>
+                              </div></a></li>
+                          <li><a href="cranedata.html" class="item-link item-content">
+                              <div class="item-inner" onclick="specifyCrane('LJ10_OPC_WINCC','cable_crane_3_3')">
+                                <div class="item-title">3#缆机</div>
+                              </div></a></li>
+                          <li><a href="cranedata.html" class="item-link item-content">
+                              <div class="item-inner" onclick="specifyCrane('LJ11_OPC_WINCC','cable_crane_3_4')">
+                                <div class="item-title">4#缆机</div>
+                              </div></a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="accordion-item"><a href="#" class="item-content item-link">
+                    <div class="item-inner">
+                      <div class="item-title">工地四</div>
+                    </div></a>
+                    <div class="accordion-item-content">
+                      <div class="list-block">
+                        <ul>
+                          <li><a href="cranedata.html"class="item-link item-content">
+                              <div class="item-inner" onclick="specifyCrane('LJ12_OPC_WINCC','cable_crane_4_1')"> 
+                                <div class="item-title">1#缆机</div>
+                              </div></a></li>
+                          <li><a href="cranedata.html" class="item-link item-content">
+                              <div class="item-inner" onclick="specifyCrane('LJ13_OPC_WINCC','cable_crane_4_2')"> 
+                                <div class="item-title">2#缆机</div>
+                              </div></a></li>
+                          <li><a href="cranedata.html" class="item-link item-content">
+                              <div class="item-inner" onclick="specifyCrane('LJ14_OPC_WINCC','cable_crane_4_3')">
+                                <div class="item-title">3#缆机</div>
+                              </div></a></li>
+                          <li><a href="cranedata.html" class="item-link item-content">
+                              <div class="item-inner" onclick="specifyCrane('LJ15_OPC_WINCC','cable_crane_4_4')">
+                                <div class="item-title">4#缆机</div>
+                              </div></a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Second view (for second wrap)-->
+      <div id="view-2" class="view tab">
+        <div class="navbar">
+          <div class="navbar-inner">
+            <div class="center sliding">缆机远程监控系统</div>
+          </div>
+        </div>
+        <div class="pages navbar-through toolbar-through">
+          <div data-page="index-2" class="page">
+            <div class="page-content">
+              <div class="list-block">
+                <ul>
+                  <li><a href="#" data-template="about" data-context-name="about" class="item-link item-content">
+                      <div class="item-inner"> 
+                        <div class="item-title">日报表</div>
+                      </div></a></li>
+                  <li><a href="projects.html" class="item-link item-content">
+                      <div class="item-inner"> 
+                        <div class="item-title">月报表</div>
+                      </div></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Third view (for third wrap)-->
+      <div id="view-3" class="view tab">
+        <div class="navbar">
+          <div class="navbar-inner">
+            <div class="center sliding">缆机远程监控系统</div>
+          </div>
+        </div>
+        <div class="pages navbar-through toolbar-through">
+          <div data-page="index-3" class="page">
+            
+          </div>
+        </div>
+      </div>
+      <!-- Bottom Tabbar-->
+      <div class="toolbar tabbar tabbar-labels">
+        <div class="toolbar-inner"><a href="#view-1" class="tab-link active"> <i class="icon tabbar-demo-icon-1"></i><span class="tabbar-label">主界面</span></a><a href="#view-2" class="tab-link"> <i class="icon tabbar-demo-icon-2"></i><span class="tabbar-label">报表</span></a><a href="#view-3" class="tab-link"> <i class="icon tabbar-demo-icon-3"></i><span class="tabbar-label">保养数据</span></a></div>
+      </div>
+    </div>
+
+<!-- Template7 templates-->
+<script type="text/template7" id="crane_data">
+  <li class="item-content">
+    <div class="item-inner">
+      <div class="item-title-row">
+        <div class="item-title">
+          {{Sheet1[0].NAME}}:
+        </div>
+        <div class="item-title">
+          {{Sheet1[1].NAME}}:
+        </div>
+      </div>
+    </div>
+  </li>
+  <li class="item-content">
+    <div class="item-inner">
+      <div class="item-title-row">
+        <div class="item-title">
+          {{Sheet1[0].DATA}}&nbsp&nbspm
+        </div>
+        <div class="item-title">
+          {{Sheet1[1].DATA}}&nbsp&nbspm/s
+        </div>
+      </div>
+    </div>
+  </li>
+  <li class="item-content">
+    <div class="item-inner">
+      <div class="item-title-row">
+        <div class="item-title">
+          {{Sheet1[2].NAME}}:
+        </div>
+        <div class="item-title">
+          {{Sheet1[3].NAME}}:
+        </div>
+      </div>
+    </div>
+  </li>
+  <li class="item-content">
+    <div class="item-inner">
+      <div class="item-title-row">
+        <div class="item-title">
+          {{Sheet1[2].DATA}}&nbsp&nbspm
+        </div>
+        <div class="item-title">
+          {{Sheet1[3].DATA}}&nbsp&nbspm/s
+        </div>
+      </div>
+    </div>
+  </li>
+  <li class="item-content">
+    <div class="item-inner">
+      <div class="item-title-row">
+        <div class="item-title">
+          {{Sheet1[4].NAME}}:
+        </div>
+        <div class="item-title">
+          {{Sheet1[5].NAME}}:
+        </div>
+      </div>
+    </div>
+  </li>
+  <li class="item-content">
+    <div class="item-inner">
+      <div class="item-title-row">
+        <div class="item-title">
+          {{Sheet1[4].DATA}}&nbsp&nbspm
+        </div>
+        <div class="item-title">
+          {{Sheet1[5].DATA}}&nbsp&nbspm/s
+        </div>
+      </div>
+    </div>
+  </li>
+  <li class="item-content">
+    <div class="item-inner">
+      <div class="item-title-row">
+        <div class="item-title">
+          {{Sheet1[6].NAME}}:
+        </div>
+        <div class="item-title">
+          {{Sheet1[7].NAME}}:
+        </div>
+      </div>
+    </div>
+  </li>
+  <li class="item-content">
+    <div class="item-inner">
+      <div class="item-title-row">
+        <div class="item-title">
+          {{Sheet1[6].DATA}}&nbsp&nbspm
+        </div>
+        <div class="item-title">
+          {{Sheet1[7].DATA}}&nbsp&nbspm/s
+        </div>
+      </div>
+    </div>
+  </li>
+  <li class="item-content">
+    <div class="item-inner">
+      <div class="item-title-row">
+        <div class="item-title">
+          {{Sheet1[8].NAME}}:
+        </div>
+        <div class="item-title">
+          {{Sheet1[9].NAME}}:
+        </div>
+      </div>
+    </div>
+  </li>
+  <li class="item-content">
+    <div class="item-inner">
+      <div class="item-title-row">
+        <div class="item-title">
+          {{Sheet1[8].DATA}}&nbsp&nbspt
+        </div>
+        <div class="item-title">
+          {{Sheet1[9].DATA}}&nbsp&nbspKV
+        </div>
+      </div>
+    </div>
+  </li>
+  <li class="item-content">
+    <div class="item-inner">
+      <div class="item-title-row">
+        <div class="item-title">
+          {{Sheet1[10].NAME}}:
+        </div>
+        <div class="item-title">
+          {{Sheet1[11].NAME}}:
+        </div>
+      </div>
+    </div>
+  </li>
+  <li class="item-content">
+    <div class="item-inner">
+      <div class="item-title-row">
+        <div class="item-title">
+          {{Sheet1[10].DATA}}&nbsp&nbspA
+        </div>
+        <div class="item-title">
+          {{Sheet1[11].DATA}}&nbsp&nbspA
+        </div>
+      </div>
+    </div>
+  </li>
+  <li class="item-content">
+    <div class="item-inner">
+      <div class="item-title-row">
+        <div class="item-title">
+          {{Sheet1[12].NAME}}:
+        </div>
+        <div class="item-title">
+          {{Sheet1[13].NAME}}:
+        </div>
+      </div>
+    </div>
+  </li>
+  <li class="item-content">
+    <div class="item-inner">
+      <div class="item-title-row">
+        <div class="item-title">
+          {{Sheet1[12].DATA}}&nbsp&nbspA
+        </div>
+        <div class="item-title">
+          {{Sheet1[13].DATA}}&nbsp&nbspA
+        </div>
+      </div>
+    </div>
+  </li>
+</script>
+  
+    <!-- Path to xlsx-->
+    <script lang="javascript" src="js/xlsx.core.min.js"></script>
+    <!-- international support from https://github.com/sheetjs/js-codepage -->
+    <script src="js/cpexcel.js"></script>
+    <!-- ODS support -->
+    <script src="js/ods.js"></script>
+    <!-- Path to Framework7 Library JS-->
+    <script type="text/javascript" src="js/framework7.min.js"></script>
+    <!-- Path to your app js-->
+    <script type="text/javascript" src="js/my-app.js"></script>
+  </body>
+</html>
