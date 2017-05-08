@@ -50,6 +50,9 @@ var myApp = new Framework7({
         },
         cable_crane_6_2:{
             Sheet1:[{}]
+        },
+        site_names:{
+
         }
     }
 });
@@ -71,10 +74,20 @@ myApp.onPageInit('index-1', function (page) {
   loadXMLDoc("LJ0_OPC_WINCC","cable_crane_6_1");
   loadXMLDoc("LJ0_OPC_WINCC","cable_crane_6_2");
 
+  document.getElementById("site1").innerHTML="工地一:加载中";
+  document.getElementById("site2").innerHTML="工地二:加载中";
+  document.getElementById("site3").innerHTML="工地三:加载中";
+  document.getElementById("site4").innerHTML="工地四:加载中";
+  document.getElementById("site5").innerHTML="工地五:加载中";
+  document.getElementById("site6").innerHTML="工地六:加载中";
+
+  setTimeout(showName,3000)
+
 });
 
 //maniually initialize home page to activate the function above
 myApp.init();
+
 
 // Export selectors engine
 var $$ = Dom7;
@@ -89,6 +102,8 @@ var cur_datafile = "LJ0_OPC_WINCC";
 var cur_crane = "cable_crane_1_1";
 var refreashState = true;
 var refreashTimer;
+
+
 
 function specifyCrane(datafile,crane){
     cur_datafile = datafile;
@@ -107,6 +122,16 @@ myApp.onPageInit('crane_display', function (page) {
     refreashState = false;
   }
 });
+
+function showName(){
+  console.log("start showing name")
+  document.getElementById("site1").innerHTML="工地一:" + myApp.template7Data.site_names.SITE1;
+  document.getElementById("site2").innerHTML="工地二:" + myApp.template7Data.site_names.SITE2;
+  document.getElementById("site3").innerHTML="工地三:" + myApp.template7Data.site_names.SITE3;
+  document.getElementById("site4").innerHTML="工地四:" + myApp.template7Data.site_names.SITE4;
+  document.getElementById("site5").innerHTML="工地五:" + myApp.template7Data.site_names.SITE5;
+  document.getElementById("site6").innerHTML="工地六:" + myApp.template7Data.site_names.SITE6;
+}
 
 function updateCraneData(){
     console.log("updating "+cur_crane+" using "+cur_datafile+" data");
@@ -155,7 +180,7 @@ function loadXMLDoc(datafile,crane)
         }
     }
     //xmlhttp.open("GET","http://localhost:3000/dist/"+datafile+".xlsm",true);
-    xmlhttp.open("GET","http://117.149.16.29:3000/dist/"+datafile+".xlsm",true);
+    xmlhttp.open("GET","http://l117.149.16.29:3000/dist/"+datafile+".xlsm",true);
 
     if(typeof Uint8Array !== 'undefined') {
         xmlhttp.responseType = "arraybuffer";
@@ -172,6 +197,7 @@ function loadXMLDoc(datafile,crane)
             for( var i=0;i<14;i++){
                 myApp.template7Data[crane].Sheet1[i] = {"NAME":xlsFile.Sheet1[i+craneNum]["NAME"+siteName],"DATA":xlsFile.Sheet1[i+craneNum]["DATA"+siteName]};
             }
+            myApp.template7Data.site_names = {"SITE1":xlsFile.Sheet1[0].SITE1,"SITE2":xlsFile.Sheet1[0].SITE2,"SITE3":xlsFile.Sheet1[0].SITE3,"SITE4":xlsFile.Sheet1[0].SITE4,"SITE5":xlsFile.Sheet1[0].SITE5,"SITE6":xlsFile.Sheet1[0].SITE6,}
         };
     } else {
         xmlhttp.setRequestHeader("Accept-Charset", "x-user-defined");  
@@ -185,6 +211,7 @@ function loadXMLDoc(datafile,crane)
             for( var i=0;i<14;i++){
                 myApp.template7Data[crane].Sheet1[i] = {"NAME":xlsFile.Sheet1[i+craneNum]["NAME"+siteName],"DATA":xlsFile.Sheet1[i+craneNum]["DATA"+siteName]};
             }
+            myApp.template7Data.site_names = {"SITE1":xlsFile.Sheet1[0].SITE1,"SITE2":xlsFile.Sheet1[0].SITE2,"SITE3":xlsFile.Sheet1[0].SITE3,"SITE4":xlsFile.Sheet1[0].SITE4,"SITE5":xlsFile.Sheet1[0].SITE5,"SITE6":xlsFile.Sheet1[0].SITE6,}
         } };
     }
     xmlhttp.send();
