@@ -21,25 +21,10 @@ var myApp = new Framework7({
         cable_crane_1_1:{
             Sheet1:[{}]
         },
-        cable_crane_1_2:{
-            Sheet1:[{}]
-        },
-        cable_crane_1_3:{
-            Sheet1:[{}]
-        },
-        cable_crane_1_4:{
-            Sheet1:[{}]
-        },
         cable_crane_2_1:{
             Sheet1:[{}]
         },
         cable_crane_2_2:{
-            Sheet1:[{}]
-        },
-        cable_crane_2_3:{
-            Sheet1:[{}]
-        },
-        cable_crane_2_4:{
             Sheet1:[{}]
         },
         cable_crane_3_1:{
@@ -48,22 +33,10 @@ var myApp = new Framework7({
         cable_crane_3_2:{
             Sheet1:[{}]
         },
-        cable_crane_3_3:{
-            Sheet1:[{}]
-        },
-        cable_crane_3_4:{
-            Sheet1:[{}]
-        },
         cable_crane_4_1:{
             Sheet1:[{}]
         },
         cable_crane_4_2:{
-            Sheet1:[{}]
-        },
-        cable_crane_4_3:{
-            Sheet1:[{}]
-        },
-        cable_crane_4_4:{
             Sheet1:[{}]
         },
         cable_crane_5_1:{
@@ -72,22 +45,10 @@ var myApp = new Framework7({
         cable_crane_5_2:{
             Sheet1:[{}]
         },
-        cable_crane_5_3:{
-            Sheet1:[{}]
-        },
-        cable_crane_5_4:{
-            Sheet1:[{}]
-        },
         cable_crane_6_1:{
             Sheet1:[{}]
         },
         cable_crane_6_2:{
-            Sheet1:[{}]
-        },
-        cable_crane_6_3:{
-            Sheet1:[{}]
-        },
-        cable_crane_6_4:{
             Sheet1:[{}]
         },
         site_names:{
@@ -218,8 +179,8 @@ function loadXMLDoc(datafile,crane)
         
         }
     }
-    xmlhttp.open("GET","http://localhost:3000/dist/"+datafile+".xlsm",true);
-    //xmlhttp.open("GET","http://l117.149.16.29:3000/dist/"+datafile+".xlsm",true);
+    //xmlhttp.open("GET","http://localhost:3000/dist/"+datafile+".xlsm",true);
+    xmlhttp.open("GET","http://117.149.16.29:3000/dist/"+datafile+".xlsm",true);
 
     if(typeof Uint8Array !== 'undefined') {
         xmlhttp.responseType = "arraybuffer";
