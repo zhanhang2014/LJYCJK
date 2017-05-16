@@ -218,8 +218,8 @@ function loadXMLDoc(datafile,crane)
         
         }
     }
-    xmlhttp.open("GET","http://localhost:3000/dist/"+datafile+".xlsm",true);
-    //xmlhttp.open("GET","http://l117.149.16.29:3000/dist/"+datafile+".xlsm",true);
+    //xmlhttp.open("GET","http://localhost:3000/dist/"+datafile+".xlsm",true);
+    xmlhttp.open("GET","http://117.149.16.29:3000/dist/"+datafile+".xlsm",true);
 
     if(typeof Uint8Array !== 'undefined') {
         xmlhttp.responseType = "arraybuffer";
